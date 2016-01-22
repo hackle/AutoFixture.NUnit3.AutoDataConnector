@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+        <metadata>
+                <id>AutoFixture.NUnit3.AutoDataConnector</id>
+                <version>1.0.0.0</version>
+                <description>Connect AutoFixture's AutoData with NUnit 3</description>
+                        <authors>Hackle Wayne</authors>
+                <language>en-US</language>
+                <projectUrl>https://github.com/hackle/AutoFixture.NUnit3.AutoDataConnector</projectUrl>
+        </metadata>
+</package>
