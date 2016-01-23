@@ -55,11 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoFixtureParameterValueProvider.cs" />
-    <Compile Include="AutoDataAttribute.cs" />
-    <Compile Include="AutoMoqDataAttribute.cs" />
-    <Compile Include="FrozenAttribute.cs" />
-    <Compile Include="IParameterValueProvider.cs" />
+    <Compile Include="..\SourceCode\AutoFixtureParameterValueProvider.cs" />
+    <Compile Include="..\SourceCode\AutoDataAttribute.cs" />
+    <Compile Include="..\SourceCode\AutoMoqDataAttribute.cs" />
+    <Compile Include="..\SourceCode\FrozenAttribute.cs" />
+    <Compile Include="..\SourceCode\IParameterValueProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
