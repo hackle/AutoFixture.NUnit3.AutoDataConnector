@@ -3,7 +3,9 @@
         <metadata>
                 <id>AutoFixture.NUnit3.AutoDataConnector</id>
                 <version>1.0.0.0</version>
-                <description>Connect AutoFixture's AutoData with NUnit 3</description>
+                <description>
+					Connect AutoFixture's AutoData with NUnit 3, along with AutoMoqData as an example to hook up to supported mocking frameworks.
+				</description>
                         <authors>Hackle Wayne</authors>
                 <language>en-US</language>
                 <projectUrl>https://github.com/hackle/AutoFixture.NUnit3.AutoDataConnector</projectUrl>
