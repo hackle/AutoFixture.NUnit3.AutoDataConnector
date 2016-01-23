@@ -2,6 +2,7 @@
 Connecting AutoData of AutoFixture with NUnit3. Currently implementations depend on NUnit 2 and is tightly coupled to specific version of NUnit.core.
 
 AutoFixture https://github.com/AutoFixture
+
 AutoData and AutoMoqData http://blog.ploeh.dk/2010/10/08/AutoDataTheorieswithAutoFixture/
 
 # NuGet package ID
