@@ -12,7 +12,7 @@ namespace AutoDataConnector
 {
     /// <summary>
     /// Provide auto-generated values to parameters. 
-    /// Most code is ported over from TestCaseAttribute of NUnit3
+    /// Code is based on TestCaseAttribute of NUnit3
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
     public class AutoDataAttribute : NUnitAttribute, ITestBuilder, ITestCaseData, IImplyFixture
@@ -22,7 +22,7 @@ namespace AutoDataConnector
         }
 
         /// <summary>
-        ///     This constructor is not CLS-Compliant
+        /// NOTE: This constructor is not CLS-Compliant
         /// </summary>
         public AutoDataAttribute(IParameterValueProvider parameterValueProvider)
         {
