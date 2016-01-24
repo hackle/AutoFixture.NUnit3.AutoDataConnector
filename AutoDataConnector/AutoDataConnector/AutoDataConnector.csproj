@@ -55,7 +55,10 @@
     <Compile Include="..\Shared\content\AutoFixutre.AutoData.NUnit3\AutoDataAttribute.cs" />
     <Compile Include="..\Shared\content\AutoFixutre.AutoData.NUnit3\FrozenAttribute.cs" />
     <Compile Include="..\Shared\content\AutoFixutre.AutoData.NUnit3\IParameterValueProvider.cs" />
+    <Compile Include="AutoFixtureDataProvider.cs" />
     <Compile Include="AutoMoqDataAttribute.cs" />
+    <Compile Include="ITypedDataProvider.cs" />
+    <Compile Include="ParameterValueProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

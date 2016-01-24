@@ -6,8 +6,9 @@ namespace AutoDataConnector
     public class AutoMoqDataAttribute : AutoDataAttribute
     {
         public AutoMoqDataAttribute()
-            : base(new AutoFixtureParameterValueProvider(new Fixture(),
-                new AutoMoqCustomization(), new MultipleCustomization()))
+            : base(
+                new ParameterValueProvider(new AutoFixtureDataProvider(new Fixture(), new AutoMoqCustomization(),
+                    new MultipleCustomization())))
         {
         }
     }
