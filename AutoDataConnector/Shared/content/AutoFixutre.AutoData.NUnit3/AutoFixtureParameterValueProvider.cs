@@ -9,17 +9,18 @@ namespace AutoDataConnector
 {
     public class AutoFixtureParameterValueProvider : IParameterValueProvider
     {
-        private readonly Fixture fixture = new Fixture();
+        private readonly IFixture _fixture;
 
-        public AutoFixtureParameterValueProvider()
+        public AutoFixtureParameterValueProvider() : this(new Fixture())
         {
         }
 
-        public AutoFixtureParameterValueProvider(params ICustomization[] customizations)
+        public AutoFixtureParameterValueProvider(IFixture fixture, params ICustomization[] customizations)
         {
+            _fixture = fixture;
             foreach (var c in customizations)
             {
-                this.fixture.Customize(c);
+                this._fixture.Customize(c);
             }
         }
 
@@ -56,14 +57,14 @@ namespace AutoDataConnector
 
         private T Create<T>()
         {
-            return this.fixture.Create<T>();
+            return this._fixture.Create<T>();
         }
 
         // ReSharper disable once UnusedMember.Local
 
         private T Freeze<T>()
         {
-            return this.fixture.Freeze<T>();
+            return this._fixture.Freeze<T>();
         }
     }
 }
