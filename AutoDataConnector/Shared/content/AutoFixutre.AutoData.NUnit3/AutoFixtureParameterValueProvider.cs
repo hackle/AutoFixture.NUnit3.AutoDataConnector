@@ -11,10 +11,6 @@ namespace AutoDataConnector
     {
         private readonly IFixture _fixture;
 
-        public AutoFixtureParameterValueProvider() : this(new Fixture())
-        {
-        }
-
         public AutoFixtureParameterValueProvider(IFixture fixture, params ICustomization[] customizations)
         {
             _fixture = fixture;

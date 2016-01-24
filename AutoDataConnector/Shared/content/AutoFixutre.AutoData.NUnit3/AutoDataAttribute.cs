@@ -6,7 +6,7 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Builders;
-
+using Ploeh.AutoFixture;
 using ITestCaseData = NUnit.Framework.Interfaces.ITestCaseData;
 
 namespace AutoDataConnector
@@ -18,7 +18,7 @@ namespace AutoDataConnector
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
     public class AutoDataAttribute : NUnitAttribute, ITestBuilder, ITestCaseData, IImplyFixture
     {
-        public AutoDataAttribute() : this(new AutoFixtureParameterValueProvider())
+        public AutoDataAttribute() : this(new AutoFixtureParameterValueProvider(new Fixture()))
         {
         }
 
