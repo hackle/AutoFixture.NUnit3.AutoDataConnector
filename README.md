@@ -24,13 +24,13 @@ Use [Test, AutoData] to request values to parameters.
 
 # Customization for Mock frameworks
 AutoData will not be able to generate value for interfaces. For that purpose you will need to add customizations, for example, to enable AutoMoq, add the following class to your project.
-
+    
     using AutoDataConnector;
     using Ploeh.AutoFixture;
     using Ploeh.AutoFixture.AutoMoq;
-        
-        namespace TestAutoDataConnector
-        {
+
+    namespace TestAutoDataConnector
+    {
         public class AutoMoqDataAttribute : AutoDataAttribute
         {
             public AutoMoqDataAttribute()
@@ -38,10 +38,10 @@ AutoData will not be able to generate value for interfaces. For that purpose you
                     new ParameterValueProvider(new AutoFixtureDataProvider(new AutoMoqCustomization(),
                         new MultipleCustomization())))
             {
-        
+
             }
         }
-        }
+    }
 
 So you can do something like
         
