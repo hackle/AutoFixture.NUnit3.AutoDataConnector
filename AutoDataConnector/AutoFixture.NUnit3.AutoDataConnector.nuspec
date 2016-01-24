@@ -11,8 +11,6 @@
                 <projectUrl>https://github.com/hackle/AutoFixture.NUnit3.AutoDataConnector</projectUrl>
 				<dependencies>
 				  <dependency id="AutoFixture" />
-				  <dependency id="AutoFixture.AutoMoq"/>
-				  <dependency id="Moq"/>
 				  <dependency id="NUnit" version="3.0.1" />
 				</dependencies> 
         </metadata>

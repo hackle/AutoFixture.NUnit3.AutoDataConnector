@@ -12,51 +12,25 @@ using ITestCaseData = NUnit.Framework.Interfaces.ITestCaseData;
 namespace AutoDataConnector
 {
     /// <summary>
-    ///     TestCaseAttribute is used to mark parameterized test cases
-    ///     and provide them with their arguments.
+    /// Provide auto-generated values to parameters. 
+    /// Most code is ported over from TestCaseAttribute of NUnit3
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
     public class AutoDataAttribute : NUnitAttribute, ITestBuilder, ITestCaseData, IImplyFixture
     {
-        /// <summary>
-        ///     Construct a TestCaseAttribute with a list of arguments.
-        ///     This constructor is not CLS-Compliant
-        /// </summary>
         public AutoDataAttribute() : this(new AutoFixtureParameterValueProvider())
         {
         }
 
+        /// <summary>
+        ///     This constructor is not CLS-Compliant
+        /// </summary>
         public AutoDataAttribute(IParameterValueProvider parameterValueProvider)
         {
             this.RunState = RunState.Runnable;
             this.Properties = new PropertyBag();
 
             this.parameterValueProvider = parameterValueProvider;
-        }
-
-        private TestCaseParameters GetParametersForTestCase(IMethodInfo method)
-        {
-            TestCaseParameters parms;
-
-            try
-            {
-                var parameters = method.GetParameters();
-
-                var paramValues = this.CreateParameters(parameters);
-
-                parms = new TestCaseParameters(paramValues);
-            }
-            catch (Exception ex)
-            {
-                parms = new TestCaseParameters(ex);
-            }
-
-            return parms;
-        }
-
-        private object[] CreateParameters(IParameterInfo[] parameters)
-        {
-            return parameters.Select(this.parameterValueProvider.Get).ToArray();
         }
 
         /// <summary>
@@ -68,9 +42,28 @@ namespace AutoDataConnector
         /// <returns>One or more TestMethods</returns>
         public IEnumerable<TestMethod> BuildFrom(IMethodInfo method, Test suite)
         {
-            var test = new NUnitTestCaseBuilder().BuildTestMethod(method, suite, this.GetParametersForTestCase(method));
+            var test = new NUnitTestCaseBuilder().BuildTestMethod(method, suite, this.GetParametersForMethod(method));
 
             yield return test;
+        }
+
+        private TestCaseParameters GetParametersForMethod(IMethodInfo method)
+        {
+            try
+            {
+                var parameterValues = this.CreateParameterValues(method.GetParameters());
+
+                return new TestCaseParameters(parameterValues);
+            }
+            catch (Exception ex)
+            {
+                return new TestCaseParameters(ex);
+            }
+        }
+
+        private object[] CreateParameterValues(IEnumerable<IParameterInfo> parameters)
+        {
+            return parameters.Select(this.parameterValueProvider.Get).ToArray();
         }
 
         #region ITestData Members
