@@ -6,15 +6,15 @@ namespace AutoDataConnector
 {
     public class AutoFixtureDataProvider : ITypedDataProvider
     {
-        private readonly IFixture _fixture;
+        protected readonly IFixture Fixture;
 
-        public AutoFixtureDataProvider(IFixture fixture, params ICustomization[] customizations)
+        public AutoFixtureDataProvider(params ICustomization[] customizations)
         {
-            _fixture = fixture;
+            Fixture = new Fixture();
 
             foreach (var c in customizations)
             {
-                _fixture.Customize(c);
+                Fixture.Customize(c);
             }
         }
 
@@ -37,18 +37,14 @@ namespace AutoDataConnector
             return generic.Invoke(this, null);
         }
 
-        // ReSharper disable once UnusedMember.Local
-
         private T Create<T>()
         {
-            return this._fixture.Create<T>();
+            return this.Fixture.Create<T>();
         }
-
-        // ReSharper disable once UnusedMember.Local
-
+        
         private T Freeze<T>()
         {
-            return this._fixture.Freeze<T>();
+            return this.Fixture.Freeze<T>();
         }
     }
 }

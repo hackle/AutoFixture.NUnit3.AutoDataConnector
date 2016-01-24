@@ -17,7 +17,7 @@ namespace AutoDataConnector
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
     public class AutoDataAttribute : NUnitAttribute, ITestBuilder, ITestCaseData, IImplyFixture
     {
-        public AutoDataAttribute() : this(new AutoFixtureParameterValueProvider())
+        public AutoDataAttribute() : this(new ParameterValueProvider(new AutoFixtureDataProvider()))
         {
         }
 

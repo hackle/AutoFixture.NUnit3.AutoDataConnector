@@ -7,7 +7,7 @@ namespace AutoDataConnector
     {
         public AutoMoqDataAttribute()
             : base(
-                new ParameterValueProvider(new AutoFixtureDataProvider(new Fixture(), new AutoMoqCustomization(),
+                new ParameterValueProvider(new AutoFixtureDataProvider(new AutoMoqCustomization(),
                     new MultipleCustomization())))
         {
         }
